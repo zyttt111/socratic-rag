@@ -1,0 +1,30 @@
+# 著作元数据示例：纯粹理性批判
+kant-krv:
+  title: 纯粹理性批判
+  title_en: Kritik der reinen Vernunft
+  philosopher: 康德
+  philosopher_en: Immanuel Kant
+  year: 1781
+  year_zh: 1781 年
+  translator: 韦卓民
+  publisher: 商务印书馆
+  language: zh
+  school: 德国古典哲学
+  era: 启蒙时期
+  sep_entry: https://plato.stanford.edu/entries/kant/
+  core_concepts:
+    - 先天综合判断
+    - 二律背反
+    - 物自体
+    - 哥白尼式革命
+    - 先验感性论
+    - 先验分析论
+    - 先验辩证论
+    - 先验方法论
+  chapters:
+    - title: 第一版序言
+      summary: 康德阐述其哲学的"哥白尼式革命"思路
+    - title: 先验要素论
+      summary: 包括先验感性论、先验逻辑
+    - title: 先验方法论
+      summary: 纯粹理性的训练、范式、架构等

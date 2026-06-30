@@ -1,0 +1,24 @@
+# 著作元数据示例：理想国
+plato-republic:
+  title: 理想国
+  title_en: The Republic / Πολιτεία
+  philosopher: 柏拉图
+  philosopher_en: Plato
+  year: -380
+  year_zh: 公元前 380 年左右
+  translator: 郭斌和 / 张竹明
+  publisher: 商务印书馆
+  language: zh
+  school: 古希腊哲学
+  era: 古典时期
+  sep_entry: https://plato.stanford.edu/entries/plato/
+  core_concepts:
+    - 理念论
+    - 洞穴寓言
+    - 哲人王
+    - 正义论
+    - 灵魂三分
+    - 四个等级
+  famous_quotes:
+    - "未经审视的人生不值得过"
+    - "洞穴寓言"

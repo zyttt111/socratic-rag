@@ -1,0 +1,110 @@
+# =====================
+# Python
+# =====================
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# =====================
+# 虚拟环境
+# =====================
+.venv/
+venv/
+env/
+ENV/
+
+# =====================
+# 环境变量
+# =====================
+.env
+.env.local
+.env.*.local
+
+# =====================
+# 数据文件（大文件不提交）
+# =====================
+# 原著原文（用户通过 download_data.py 获取）
+data/raw/
+data/raw/**/*
+
+# 切分后文本 + Embedding
+data/processed/*.bin
+data/processed/embeddings/
+data/processed/*.npy
+data/processed/*.npz
+
+# 数据库
+qdrant_storage/
+neo4j_data/
+neo4j_logs/
+redis_data/
+
+# =====================
+# 模型权重（大文件）
+# =====================
+models/
+*.pt
+*.pth
+*.gguf
+*.bin
+*.safetensors
+
+# =====================
+# 测试 & 日志
+# =====================
+.pytest_cache/
+.coverage
+htmlcov/
+.coverage.*
+coverage.xml
+*.cover
+.hypothesis/
+.tox/
+logs/
+*.log
+
+# =====================
+# IDE & OS
+# =====================
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+*.tmp
+
+# =====================
+# Jupyter
+# =====================
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# =====================
+# Celery
+# =====================
+celerybeat-schedule
+celerybeat.pid
+
+# =====================
+# Streamlit
+# =====================
+.streamlit/secrets.toml

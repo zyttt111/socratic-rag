@@ -1,0 +1,23 @@
+# 概念定义示例：现象学
+
+phenomenology:
+  name: 现象学
+  name_en: Phenomenology
+  definition: |
+    由胡塞尔在 20 世纪初创立的哲学方法，
+    主张回到"事情本身"（zu den Sachen selbst），
+    通过对意识的本质直观把握事物的本质结构。
+  school: 现象学运动
+  related_philosophers:
+    - 胡塞尔
+    - 海德格尔
+    - 梅洛-庞蒂
+    - 利科
+    - 伽达默尔
+  related_concepts:
+    - 此在
+    - 存在
+    - 意向性
+    - 还原
+  primary_source: 胡塞尔《逻辑研究》(1900)
+  sep_entry: https://plato.stanford.edu/entries/phenomenology/

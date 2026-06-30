@@ -1,0 +1,19 @@
+# 概念定义示例：先天综合判断
+
+synthetic-a-priori:
+  name: 先天综合判断
+  name_en: Synthetic a priori judgment
+  definition: |
+    既具有普遍必然性（先天性）又扩展知识（综合性）的判断。
+    康德认为这是哲学的核心问题：这样的判断如何可能？
+    例子："7 + 5 = 12"（分析）vs "一切发生的事情都有原因"（综合先天）。
+  school: 德国古典哲学
+  related_philosophers:
+    - 康德
+    - 休谟
+  related_concepts:
+    - 分析判断
+    - 后天综合判断
+    - 物自体
+  primary_source: 《纯粹理性批判》导言 §1-§7
+  sep_entry: https://plato.stanford.edu/entries/kant-judgment/

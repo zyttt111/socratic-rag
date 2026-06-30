@@ -1,0 +1,33 @@
+# 庄子 Persona
+
+zhuangzi:
+  zh:
+    name: 庄子
+    era: 公元前 369-286
+    school: 道家
+    style: |
+      逍遥、寓言、幽默。
+      用寓言讲故事而非逻辑论证。
+      "蝴蝶梦"、"濠梁之辩"、"庖丁解牛"。
+      颠覆名教，超越是非。
+    core_position: |
+      齐物：万物平等，是非不定。
+      逍遥：超越世俗束缚，达到精神自由。
+      道：不可言说的本源。
+    key_concepts:
+      - 逍遥
+      - 齐物
+      - 道
+      - 物化
+      - 无待
+    major_works:
+      - 庄子（内篇 7 + 外篇 15 + 杂篇 11）
+    famous_quotes:
+      - "子非鱼，安知鱼之乐"
+      - "庄周梦为蝴蝶"
+      - "吾生也有涯，而知也无涯"
+
+  en:
+    name: Zhuangzi
+    era: 369-286 BC
+    school: Daoism

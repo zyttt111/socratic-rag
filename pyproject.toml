@@ -1,0 +1,100 @@
+[project]
+name = "philosophy-agent-python"
+version = "0.1.0"
+description = "哲学学习 RAG + Agent：苏格拉底反问 + 哲学家辩论 + 知识图谱"
+authors = [{ name = "zyt", email = "zyt@example.com" }]
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+
+dependencies = [
+    # LLM & Embedding
+    "langchain>=0.3.0",
+    "langchain-community>=0.3.0",
+    "langchain-deepseek>=0.1.0",
+    "langgraph>=0.2.0",
+    "llama-index>=0.12.0",
+    "openai>=1.50.0",                       # DeepSeek 兼容 OpenAI 协议
+    "sentence-transformers>=3.0.0",         # bge embedding 本地部署
+    "torch>=2.0.0",
+    # 向量库 & 图谱
+    "qdrant-client>=1.12.0",
+    "neo4j>=5.25.0",
+    # 传统检索
+    "rank-bm25>=0.2.2",
+    "jieba>=0.42.1",                        # 中文分词
+    # 数据处理
+    "pypdf>=5.0.0",
+    "pdfplumber>=0.11.0",
+    "magic-pdf[full]>=0.10.0",              # MinerU PDF 解析
+    "markdown>=3.6",
+    "pydantic>=2.9.0",
+    "pydantic-settings>=2.5.0",
+    # 后端 & 前端
+    "fastapi>=0.115.0",
+    "uvicorn>=0.32.0",
+    "streamlit>=1.39.0",
+    "python-multipart>=0.0.12",
+    "websockets>=13.0",                     # 进度推送
+    # 异步任务
+    "celery>=5.4.0",
+    "redis>=5.2.0",
+    # 评估
+    "ragas>=0.2.0",
+    "datasets>=3.0.0",
+    # 工具
+    "httpx>=0.27.0",
+    "tenacity>=9.0.0",                      # 重试
+    "tiktoken>=0.8.0",                      # Token 计数
+    "loguru>=0.7.2",
+    "rich>=13.9.0",
+    "pyyaml>=6.0.1",
+    "python-dotenv>=1.0.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.24.0",
+    "pytest-cov>=6.0.0",
+    "ruff>=0.7.0",
+    "mypy>=1.13.0",
+    "ipython>=8.28.0",
+    "jupyter>=1.1.0",
+]
+
+[project.scripts]
+phil-init = "scripts.init_db:main"
+phil-download = "scripts.download_data:main"
+phil-rebuild = "scripts.rebuild_index:main"
+phil-eval = "scripts.run_eval:main"
+phil-ui = "ui.app:main"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "N", "W", "UP", "B", "A", "C4", "SIM"]
+ignore = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+asyncio_mode = "auto"
+
+[tool.mypy]
+python_version = "3.11"
+ignore_missing_imports = true
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.3.0",
+    "ruff>=0.7.0",
+]
