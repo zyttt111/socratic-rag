@@ -38,8 +38,8 @@
 
 ```bash
 # 1. 克隆仓库
-git clone git@gitee.com:zyt1198711632/philosophy-agent-python.git
-cd philosophy-agent-python
+git clone git@github.com:zyttt111/socratic-rag.git
+cd socratic-rag
 
 # 2. 安装依赖（uv 自动创建虚拟环境）
 uv sync
