@@ -17,12 +17,15 @@ dependencies = [
     "openai>=1.50.0",                       # DeepSeek 兼容 OpenAI 协议
     "sentence-transformers>=3.0.0",         # bge embedding 本地部署
     "torch>=2.0.0",
+    
     # 向量库 & 图谱
     "qdrant-client>=1.12.0",
     "neo4j>=5.25.0",
+    
     # 传统检索
     "rank-bm25>=0.2.2",
     "jieba>=0.42.1",                        # 中文分词
+    
     # 数据处理
     "pypdf>=5.0.0",
     "pdfplumber>=0.11.0",
@@ -30,18 +33,22 @@ dependencies = [
     "markdown>=3.6",
     "pydantic>=2.9.0",
     "pydantic-settings>=2.5.0",
+    
     # 后端 & 前端
     "fastapi>=0.115.0",
     "uvicorn>=0.32.0",
     "streamlit>=1.39.0",
     "python-multipart>=0.0.12",
     "websockets>=13.0",                     # 进度推送
+    
     # 异步任务
     "celery>=5.4.0",
     "redis>=5.2.0",
+    
     # 评估
     "ragas>=0.2.0",
     "datasets>=3.0.0",
+    
     # 工具
     "httpx>=0.27.0",
     "tenacity>=9.0.0",                      # 重试
