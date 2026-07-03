@@ -13,6 +13,7 @@
 
 import hashlib
 import json
+import re
 import sys
 from pathlib import Path
 
@@ -46,6 +47,42 @@ def get_file_hash(file_path: Path) -> str:
     return h.hexdigest()
 
 
+def _detect_book_meta(file_path: Path, full_text: str) -> dict:
+    """从文件名和内容推断书籍元数据。
+
+    启发式规则（不调用 LLM，离线快速）：
+    - 文件名包含作者/书名关键词 → 映射到已知作品列表
+    - 否则用文件名作为 book_id、前 5 个字符作为猜测
+    """
+    fname = file_path.stem.lower()
+    # 已知著作映射（可扩展）
+    KNOWN = {
+        "republic":       {"book": "理想国",      "philosopher": "柏拉图",   "language": "en"},
+        "ideal-state":    {"book": "理想国",      "philosopher": "柏拉图",   "language": "zh"},
+        "lixiangguo":     {"book": "理想国",      "philosopher": "柏拉图",   "language": "zh"},
+        "nicomachean":    {"book": "尼各马可伦理学",  "philosopher": "亚里士多德", "language": "en"},
+        "nichomachean":   {"book": "尼各马可伦理学",  "philosopher": "亚里士多德", "language": "en"},
+        "meditations":    {"book": "第一哲学沉思集",  "philosopher": "笛卡尔",   "language": "en"},
+        "pure-reason":    {"book": "纯粹理性批判",   "philosopher": "康德",    "language": "en"},
+        "critique-pure":  {"book": "纯粹理性批判",   "philosopher": "康德",    "language": "en"},
+        "phenomenology":  {"book": "精神现象学",    "philosopher": "黑格尔",   "language": "en"},
+        "world-as-will":  {"book": "作为意志和表象的世界", "philosopher": "叔本华", "language": "en"},
+        "zarathustra":    {"book": "查拉图斯特拉如是说", "philosopher": "尼采",  "language": "en"},
+        "being-and-time": {"book": "存在与时间",    "philosopher": "海德格尔",  "language": "en"},
+        "being-time":     {"book": "存在与时间",    "philosopher": "海德格尔",  "language": "en"},
+        "being-nothing":  {"book": "存在与虚无",    "philosopher": "萨特",    "language": "en"},
+        "zhuangzi":       {"book": "庄子",        "philosopher": "庄子",    "language": "zh"},
+        "chuang-tzu":     {"book": "庄子",        "philosopher": "庄子",    "language": "en"},
+        "schelling":      {"book": "先验唯心论体系",  "philosopher": "谢林",    "language": "zh"},
+        "schelling-ti":   {"book": "先验唯心论体系",  "philosopher": "谢林",    "language": "zh"},
+    }
+    for key, meta in KNOWN.items():
+        if key in fname:
+            return meta
+    # fallback: use stem as book_id
+    return {"book": file_path.stem, "philosopher": "未知", "language": "zh"}
+
+
 def process_book(
     file_path: Path,
     collection_name: str,
@@ -75,21 +112,40 @@ def process_book(
 
     # 1. 加载 + 清洗
     documents = load_book(file_path)
+    book_meta = _detect_book_meta(file_path, "")
+    pdf_pages = len(documents)
+
     cleaned_docs = []
-    for doc in documents:
+    for i, doc in enumerate(documents):
         doc.page_content = clean_text(doc.page_content)
-        doc.metadata["book"] = file_path.stem
+        doc.metadata["book"] = doc.metadata.get("book", file_path.stem)
         doc.metadata["file_name"] = file_path.name
+        doc.metadata["book_title"] = book_meta["book"]
+        doc.metadata["philosopher"] = doc.metadata.get("philosopher", book_meta["philosopher"])
+        doc.metadata["language"] = book_meta["language"]
+        # PDF 原生页码（从 0 开始，调整为从 1 开始）
+        page = doc.metadata.get("page", i)
+        doc.metadata["page"] = page
+        doc.metadata["pdf_pages"] = pdf_pages
         cleaned_docs.append(doc)
 
     # 2. 切分
     chunks = split_text(cleaned_docs)
 
-    # 3. Embedding
+    # 3. 补全 metadata —— 确保每个 chunk 有精确位置信息
+    for i, chunk in enumerate(chunks):
+        chunk.metadata.setdefault("chunk_index", i)
+        chunk.metadata.setdefault("book", file_path.stem)
+        chunk.metadata.setdefault("book_title", book_meta["book"])
+        chunk.metadata.setdefault("philosopher", book_meta["philosopher"])
+        chunk.metadata.setdefault("language", book_meta["language"])
+        chunk.metadata.setdefault("page", chunk.metadata.get("page", 0))
+        chunk.metadata.setdefault("file_name", file_path.name)
+
+    # 4. Embedding
     embeddings = get_embeddings()
     chunk_dicts = []
     for i, chunk in enumerate(chunks):
-        # TODO: 批量 embedding 加速
         embedding = embeddings.embed_query(chunk.page_content)
         chunk_dicts.append(
             {
@@ -100,16 +156,18 @@ def process_book(
             }
         )
 
-    # 4. 写入 Qdrant
+    # 5. 写入 Qdrant
     client = get_qdrant_client()
     upsert_chunks(chunk_dicts, client=client, collection_name=collection_name)
 
-    # 5. 缓存
+    # 6. 缓存
     cache_data = {
         "file_hash": file_hash,
         "file_name": file_path.name,
         "chunks": len(chunks),
         "timestamp": str(Path(file_path).stat().st_mtime),
+        "book_title": book_meta["book"],
+        "philosopher": book_meta["philosopher"],
     }
     cache_file.write_text(
         json.dumps(cache_data, ensure_ascii=False, indent=2),

@@ -65,14 +65,12 @@ def _strip_gutenberg(text: str) -> str:
 
 
 def fix_ocr_errors(text: str) -> str:
-    """修复常见 OCR 错误。"""
-    # 形近字修正（哲学文本常见）
+    """修复常见 OCR 错误（哲学文本常见形近字）。"""
     corrections = {
         "己经": "已经",
         "己知": "已知",
-        "仑": "仑",  # 占位
-        "藉": "借",
-        "覆": "复",
+        "未己": "未已",
+        "自巳": "自己",
     }
     for wrong, right in corrections.items():
         text = text.replace(wrong, right)

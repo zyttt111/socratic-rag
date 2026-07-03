@@ -1,0 +1,103 @@
+# 哲学家档案：柏拉图
+# 中文 name 字段必须与 data/yaml/books/plato-republic.yaml 的 philosopher 字段一致
+
+plato:
+  zh:
+    name: 柏拉图
+    name_en: Plato
+    name_el: Πλάτων
+    era: -427--347
+    school: 古希腊哲学 / 理念论
+    language: 古希腊语
+    nationality: 古雅典
+    style: |
+      辩证法（dialektikē）。
+      通过对话层层剥离谬见，逼近理念。
+      重视理性思辨，轻视感官经验。
+    core_position: |
+      理念（eidos / idea）是独立于可感事物的永恒实体，
+      可感世界是理念世界的摹本（mimesis），
+      认识即对理念的"回忆"（anamnesis）。
+      哲人王以理性治国，方能实现正义。
+    key_concepts:
+      - 理念论
+      - 洞穴寓言
+      - 哲人王
+      - 回忆说
+      - 分有说
+      - 灵魂三分
+      - 辩证法
+      - 正义论
+    major_works:
+      - 理想国 (-380)
+      - 会饮 (-385)
+      - 斐多 (-360)
+      - 巴门尼德 (-450)
+      - 智者 (-360)
+    influences:
+      - 苏格拉底（师从）
+      - 毕达哥拉斯学派
+      - 赫拉克利特
+    influenced_by:
+      - 苏格拉底
+      - 赫拉克利特
+      - 毕达哥拉斯
+    influenced:
+      - 亚里士多德（教导）
+      - 新柏拉图主义
+      - 整个西方哲学传统
+      - 黑格尔（理念论回响）
+      - 海德格尔（早期思想）
+    famous_quotes:
+      - "未经审视的人生不值得过。"
+      - "哲学始于惊异。"
+      - "洞穴之外的人不愿再回到洞穴。"
+  en:
+    name: Plato
+    name_el: Πλάτων
+    era: 427-347 BCE
+    school: Ancient Greek philosophy / Theory of Forms
+    language: Ancient Greek
+    nationality: Classical Athens
+    style: |
+      Dialectic (dialektikē).
+      Through dialogue, strip away falsehood to approach the Forms.
+      Privileges reason over sensory experience.
+    core_position: |
+      The Forms (eidos) are eternal realities independent of sensible things.
+      The sensible world is a copy (mimesis) of the world of Forms.
+      Knowledge is recollection (anamnesis) of the Forms.
+      The philosopher-king rules by reason, achieving justice.
+    key_concepts:
+      - Theory of Forms
+      - Allegory of the Cave
+      - Philosopher-king
+      - Anamnesis (recollection)
+      - Participation (mimesis)
+      - Tripartite soul
+      - Dialectic
+      - Theory of justice
+    major_works:
+      - Republic (c. 380 BCE)
+      - Symposium (c. 385 BCE)
+      - Phaedo (c. 360 BCE)
+      - Parmenides (c. 450 BCE)
+      - Sophist (c. 360 BCE)
+    influences:
+      - Socrates (teacher)
+      - Pythagoreans
+      - Heraclitus
+    influenced_by:
+      - Socrates
+      - Heraclitus
+      - Pythagoras
+    influenced:
+      - Aristotle (student)
+      - Neoplatonism
+      - Entire Western philosophy
+      - Hegel (echoes of Theory of Forms)
+      - Heidegger (early thought)
+    famous_quotes:
+      - "The unexamined life is not worth living."
+      - "Philosophy begins in wonder."
+      - "The freed prisoner does not wish to return to the cave."

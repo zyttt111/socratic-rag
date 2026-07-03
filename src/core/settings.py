@@ -45,6 +45,8 @@ class Settings(BaseSettings):
     # ========================
     qdrant_host: str = Field(default="localhost")
     qdrant_port: int = Field(default=6333)
+    qdrant_mode: str = Field(default="local")
+    qdrant_path: str = Field(default="data/qdrant_local")
     qdrant_collection: str = Field(default="philosophy_chunks")
 
     neo4j_uri: str = Field(default="bolt://localhost:7687")

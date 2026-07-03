@@ -1,0 +1,113 @@
+# 哲学家档案：庄子
+
+zhuangzi:
+  zh:
+    name: 庄子
+    name_en: Zhuangzi
+    name_zh: 莊子
+    era: -369--286
+    school: 道家 / 庄子学派
+    language: 古汉语
+    nationality: 战国宋国（蒙城）
+    style: |
+      寓言、重言、卮言三言并用。
+      汪洋恣肆、想象瑰丽、诙诡谲怪。
+      拒绝概念定义，以故事说哲理。
+      "以谬悠之说，荒唐之言，无端崖之辞"谈道。
+    core_position: |
+      道（dào）是不可言说的本原，超出名言与逻辑。
+      齐物：万物在道的观照下齐一，是非彼此皆相对。
+      逍遥：真正的自由是"乘天地之正，御六气之辩，以游无穷"，
+      无待于外，与道合一。
+      反对"成心"与"师心"，破除自我中心的执着。
+    key_concepts:
+      - 道
+      - 逍遥游
+      - 齐物
+      - 庄周梦蝶
+      - 相对主义
+      - 无待
+      - 物化
+      - 养生
+    major_works:
+      - 庄子（约成书于战国中后期）
+      - 内篇（七篇：逍遥游、齐物论、养生主、人间世、德充符、大宗师、应帝王）
+      - 外篇（十五篇）
+      - 杂篇（十一篇）
+    influences:
+      - 老子（继承并发展）
+      - 惠施（辩友）
+      - 公孙龙（辩友）
+    influenced_by:
+      - 老子
+      - 惠施
+      - 公孙龙
+      - 黄老学派
+    influenced:
+      - 魏晋玄学（向秀、郭象）
+      - 禅宗
+      - 儒家（新儒家的"圆教"观）
+      - 海德格尔（部分比较哲学）
+      - 后现代主义（解构）
+      - 中国文人精神
+    famous_quotes:
+      - "北冥有鱼，其名为鲲。"
+      - "庄周梦为蝴蝶，庄周之梦也。"
+      - "吾生也有涯，而知也无涯。"
+      - "天地与我并生，而万物与我为一。"
+      - "至人无己，神人无功，圣人无名。"
+  en:
+    name: Zhuangzi
+    name_zh: 莊子
+    era: 369-286 BCE
+    school: Daoism / Zhuangzi school
+    language: Classical Chinese
+    nationality: Warring States, Song state (Mengcheng)
+    style: |
+      Three-fold discourse: parables (yuyan), weighty sayings (zhongyan), wandering words (zhiyan).
+      Boundless imagination, fantastical, paradoxical.
+      Refuses conceptual definition; tells stories to convey philosophy.
+      "Speaks with far-fetched words, absurd expressions, boundless phrases."
+    core_position: |
+      The Dao (道) is the ineffable origin, beyond names and logic.
+      Equality of things (qiwu): all things are equal under the Dao's regard;
+      right/wrong, this/that are relative.
+      Carefree wandering (xiaoyao): true freedom is "riding on the正气 of heaven and earth,
+      driving the six qi to roam in the infinite" — depending on nothing external,
+      united with the Dao.
+      Opposes "fixed mind" (chengxin) and self-centered attachment.
+    key_concepts:
+      - Dao
+      - Carefree wandering (Xiaoyao)
+      - Equality of things (Qiwu)
+      - Butterfly dream
+      - Relativism
+      - Non-dependence (Wudai)
+      - Transformation of things (Wuhua)
+      - Nourishing life (Yangsheng)
+    major_works:
+      - Zhuangzi (compiled c. Warring States to early Han)
+      - Inner Chapters (7): Xiaoyao, Qiwu, Yangsheng, Renshi, Dechong, Dazong, Yingdi
+      - Outer Chapters (15)
+      - Mixed Chapters (11)
+    influences:
+      - Laozi (inherited and developed)
+      - Hui Shi (debate partner)
+      - Gongsun Long (debate partner)
+    influenced_by:
+      - Laozi
+      - Hui Shi
+      - Gongsun Long
+      - Huang-Lao school
+    influenced:
+      - Wei-Jin Xuanxue (Xiang Xiu, Guo Xiang)
+      - Chan/Zen Buddhism
+      - Confucianism (New Confucian "perfect teaching")
+      - Heidegger (partial comparative)
+      - Postmodernism (deconstruction)
+      - Chinese literati spirit
+    famous_quotes:
+      - "In the Northern Sea there is a fish, called Kun."
+      - "Zhuangzi dreamed he was a butterfly."
+      - "Heaven and earth were born with me, and all things and I are one."
+      - "The perfect person has no self; the spirit person has no achievement; the sage has no name."

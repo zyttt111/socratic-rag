@@ -1,0 +1,120 @@
+# 哲学家档案：尼采
+
+nietzsche:
+  zh:
+    name: 尼采
+    name_en: Friedrich Nietzsche
+    name_de: Friedrich Nietzsche
+    era: 1844-1900
+    school: 生命哲学 / 唯意志论 / 后现代先驱
+    language: 德语
+    nationality: 普鲁士（萨克森）
+    style: |
+      警句式、诗化、格言体。
+      拒绝体系哲学，用"锤子"做哲学。
+      反讽、隐喻、神话比比皆是。
+      风格本身就是哲学的一部分。
+    core_position: |
+      "上帝已死"——欧洲传统形而上学的根基（基督教道德、柏拉图主义、康德义务论）已崩塌。
+      权力意志（der Wille zur Macht）是万物本原，
+      不是叔本华式的盲目生存意志，而是创造与超越的意志。
+      永恒轮回（Ewige Wiederkehr）作为最高肯定公式。
+      超人（Übermensch）是对虚无主义的克服。
+    key_concepts:
+      - 上帝已死
+      - 权力意志
+      - 永恒轮回
+      - 超人
+      - 主奴道德
+      - 酒神精神
+      - 虚无主义
+      - 视角主义
+    major_works:
+      - 查拉图斯特拉如是说 (1883)
+      - 善恶的彼岸 (1886)
+      - 道德的谱系 (1887)
+      - 偶像的黄昏 (1889)
+      - 悲剧的诞生 (1872)
+    influences:
+      - 叔本华
+      - 瓦格纳（早期，后决裂）
+      - 赫拉克利特
+      - 达尔文
+      - 歌德
+    influenced_by:
+      - 叔本华
+      - 赫拉克利特
+      - 达尔文
+      - 歌德
+      - 瓦格纳
+    influenced:
+      - 海德格尔
+      - 萨特
+      - 福柯
+      - 德勒兹
+      - 后现代主义
+      - 存在主义
+      - 生命哲学
+    famous_quotes:
+      - "上帝已死。"
+      - "当你凝视深渊时，深渊也在凝视你。"
+      - "那些杀不死我的，使我更强大。"
+      - "人是一根绳索，连接在动物与超人之间——深渊之上的一条绳索。"
+  en:
+    name: Friedrich Nietzsche
+    name_de: Friedrich Nietzsche
+    era: 1844-1900
+    school: Philosophy of life / Voluntarism / Postmodern precursor
+    language: German
+    nationality: Prussia (Saxony)
+    style: |
+      Aphoristic, poetic, maxim-based.
+      Rejects systematic philosophy, philosophizes "with a hammer."
+      Irony, metaphor, myth pervade.
+      Style itself is part of the philosophy.
+    core_position: |
+      "God is dead" — the foundations of European metaphysics
+      (Christian morality, Platonism, Kantian deontology) have collapsed.
+      Will to power (der Wille zur Macht) is the fundamental character of all being,
+      not Schopenhauerian blind survival will, but will to create and overcome.
+      Eternal recurrence (Ewige Wiederkehr) as the highest formula of affirmation.
+      The Overman (Übermensch) as the overcoming of nihilism.
+    key_concepts:
+      - Death of God
+      - Will to power
+      - Eternal recurrence
+      - Übermensch (Overman)
+      - Master-slave morality
+      - Dionysian
+      - Nihilism
+      - Perspectivism
+    major_works:
+      - Thus Spoke Zarathustra (1883)
+      - Beyond Good and Evil (1886)
+      - On the Genealogy of Morals (1887)
+      - Twilight of the Idols (1889)
+      - The Birth of Tragedy (1872)
+    influences:
+      - Schopenhauer
+      - Wagner (early, later estranged)
+      - Heraclitus
+      - Darwin
+      - Goethe
+    influenced_by:
+      - Schopenhauer
+      - Heraclitus
+      - Darwin
+      - Goethe
+      - Wagner
+    influenced:
+      - Heidegger
+      - Sartre
+      - Foucault
+      - Deleuze
+      - Postmodernism
+      - Existentialism
+      - Philosophy of life
+    famous_quotes:
+      - "God is dead."
+      - "When you gaze long into an abyss, the abyss also gazes into you."
+      - "That which does not kill us makes us stronger."

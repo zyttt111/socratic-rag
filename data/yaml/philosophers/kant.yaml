@@ -1,0 +1,107 @@
+# 哲学家档案：康德
+# 中文 name 字段必须与 data/yaml/books/kant-krv.yaml 的 philosopher 字段一致
+
+kant:
+  zh:
+    name: 康德
+    name_en: Immanuel Kant
+    name_de: Immanuel Kant
+    era: 1724-1804
+    school: 德国古典哲学 / 先验哲学 / 批判哲学
+    language: 德语
+    nationality: 普鲁士（柯尼斯堡）
+    style: |
+      体系严密的批判哲学。
+      先分析能力（纯粹理性），再划定边界（实践理性），最后综合（判断力）。
+      文风晦涩、术语精确，每个概念都给出严格定义。
+    core_position: |
+      "哥白尼式革命"：不是认识符合对象，而是对象符合认识。
+      感性直观形式（空间/时间）与知性范畴是先验的，
+      是经验成立的条件而非来自经验。
+      物自体（Ding an sich）不可知，但可思。
+      实践领域：绝对命令（Kategorischer Imperativ）。
+    key_concepts:
+      - 先天综合判断
+      - 物自体
+      - 哥白尼式革命
+      - 二律背反
+      - 先验演绎
+      - 绝对命令
+      - 善良意志
+      - 三大批判
+    major_works:
+      - 纯粹理性批判 (1781)
+      - 实践理性批判 (1788)
+      - 判断力批判 (1790)
+      - 道德形而上学奠基 (1785)
+      - 永久和平论 (1795)
+    influences:
+      - 休谟（"从独断论的睡梦中唤醒我"）
+      - 莱布尼茨-沃尔夫学派（出发点）
+      - 卢梭
+    influenced_by:
+      - 休谟
+      - 莱布尼茨
+      - 卢梭
+      - 牛顿科学
+    influenced:
+      - 费希特
+      - 谢林
+      - 黑格尔
+      - 新康德主义
+      - 现象学
+      - 整个现代哲学
+    famous_quotes:
+      - "我所能知道的，我为知识立法；我应当做的，我为道德立法；我所能希望的，我为信仰立法。"
+      - "有两种东西，我对它们的思考越是深沉和持久，它们在我心灵中唤起的惊奇和敬畏就会日新月异——我们头上的星空与我们心中的道德法则。"
+  en:
+    name: Immanuel Kant
+    name_de: Immanuel Kant
+    era: 1724-1804
+    school: German Classical philosophy / Transcendental philosophy / Critical philosophy
+    language: German
+    nationality: Prussia (Königsberg)
+    style: |
+      Systematic critical philosophy.
+      First analyze capacity (theoretical reason), then delimit boundaries (practical reason),
+      finally synthesize (judgment).
+      Dense prose, precise terminology, every concept rigorously defined.
+    core_position: |
+      "Copernican revolution": not cognition conforming to objects, but objects conforming to cognition.
+      Forms of intuition (space/time) and categories of understanding are a priori,
+      conditions of experience rather than derived from it.
+      The thing-in-itself (Ding an sich) is unknowable but thinkable.
+      Practical realm: the Categorical Imperative.
+    key_concepts:
+      - Synthetic a priori judgment
+      - Thing-in-itself
+      - Copernican revolution
+      - Antinomies
+      - Transcendental deduction
+      - Categorical Imperative
+      - Good will
+      - Three Critiques
+    major_works:
+      - Critique of Pure Reason (1781)
+      - Critique of Practical Reason (1788)
+      - Critique of Judgment (1790)
+      - Groundwork of the Metaphysics of Morals (1785)
+      - Perpetual Peace (1795)
+    influences:
+      - Hume ("woke me from dogmatic slumber")
+      - Leibniz-Wolff school (starting point)
+      - Rousseau
+    influenced_by:
+      - Hume
+      - Leibniz
+      - Rousseau
+      - Newtonian science
+    influenced:
+      - Fichte
+      - Schelling
+      - Hegel
+      - Neo-Kantianism
+      - Phenomenology
+      - All modern philosophy
+    famous_quotes:
+      - "Two things fill the mind with ever new and increasing admiration and awe, the oftener and more steadily we reflect on them: the starry heavens above and the moral law within."

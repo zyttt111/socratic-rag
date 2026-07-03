@@ -5,8 +5,13 @@
 - 批量写入
 - 检索
 - 删除
+
+支持两种模式：
+- local（文件存储，无需 Docker）
+- remote（Docker Qdrant，生产环境）
 """
 
+import os
 from typing import Any
 
 from loguru import logger
@@ -18,7 +23,13 @@ from src.core.settings import settings
 
 
 def get_qdrant_client() -> QdrantClient:
-    """获取 Qdrant 客户端（单例）"""
+    """获取 Qdrant 客户端（单例，自动选择 local/remote 模式）。"""
+    if settings.qdrant_mode == "local":
+        path = os.path.abspath(settings.qdrant_path)
+        os.makedirs(path, exist_ok=True)
+        logger.info(f"Qdrant local mode: {path}")
+        return QdrantClient(path=path)
+    logger.info(f"Qdrant remote mode: {settings.qdrant_host}:{settings.qdrant_port}")
     return QdrantClient(host=settings.qdrant_host, port=settings.qdrant_port)
 
 

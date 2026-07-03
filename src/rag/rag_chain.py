@@ -86,22 +86,32 @@ class RAGChain:
 
     @staticmethod
     def _format_contexts(contexts: list[dict]) -> str:
-        """格式化检索结果为 Prompt context"""
+        """格式化检索结果为 Prompt context，带段落级精确位置。"""
         formatted = []
         for i, ctx in enumerate(contexts, 1):
             meta = ctx.get("metadata", {})
+            book_title = meta.get("book_title", meta.get("book", "未知"))
             philosopher = meta.get("philosopher", "未知")
-            book = meta.get("book", "未知")
-            location = meta.get("section", meta.get("location", ""))
+            page = meta.get("page", "")
+            chunk_idx = meta.get("chunk_index", "")
             text = ctx.get("text", "")
+
+            # 构建精确定位标签
+            loc_parts = []
+            if page:
+                loc_parts.append(f"P.{page}")
+            if chunk_idx != "":
+                loc_parts.append(f"chunk #{chunk_idx}")
+            location = " ".join(loc_parts) if loc_parts else meta.get("section", "")
+
             formatted.append(
-                f"[{i}] 《{book}》{philosopher} {location}\n{text}\n"
+                f"[{i}] 《{book_title}》{philosopher} {location}\n{text}\n"
             )
         return "\n".join(formatted)
 
     @staticmethod
     def _extract_sources(contexts: list[dict]) -> list[dict]:
-        """提取引用来源"""
+        """提取引用来源（段落级精度）。"""
         sources = []
         for i, ctx in enumerate(contexts, 1):
             meta = ctx.get("metadata", {})
@@ -109,8 +119,9 @@ class RAGChain:
                 {
                     "index": i,
                     "philosopher": meta.get("philosopher"),
-                    "book": meta.get("book"),
-                    "location": meta.get("section", meta.get("location")),
+                    "book": meta.get("book_title", meta.get("book")),
+                    "page": meta.get("page"),
+                    "chunk": meta.get("chunk_index"),
                     "score": ctx.get("rrf_score", ctx.get("score", 0)),
                 }
             )

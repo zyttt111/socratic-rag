@@ -67,8 +67,11 @@ def split_text(
     return chunks
 
 
-def split_by_chapter(text: str, book_id: str) -> List[Document]:
+def split_by_chapter(text: str, book_id: str) -> list:
     """按章节切分（保留章节边界）。
+
+    支持中文/英文/德文章节标题，以及无编号的导论/绪论/结束语。
+    无法识别章节结构时，回退到按空行段落切分。
 
     Args:
         text: 全文
@@ -77,37 +80,58 @@ def split_by_chapter(text: str, book_id: str) -> List[Document]:
     Returns:
         每个章节一个 Document
     """
-    # 章节匹配模式（兼容中文 / 英文 / 德文）
-    chapter_patterns = [
-        r"^第[一二三四五六七八九十百千]+章[\s\S]*?(?=^第[一二三四五六七八九十百千]+章|\Z)",
-        r"^Chapter\s+\d+[\s\S]*?(?=^Chapter\s+\d+|\Z)",
-        r"^Kapitel\s+\d+[\s\S]*?(?=^Kapitel\s+\d+|\Z)",
-        r"^§\s*\d+[\s\S]*?(?=^§\s*\d+|\Z)",  # 海德格尔式 §7
-    ]
+    # ---- 合并所有章节标题模式为一条正则 ----
+    # 匹配以下形式的行（独立成行或行首）：
+    #   第X章 / 第一章 / 导论 / 绪论 / 引言 / 前言 / 序 / 结束语 / 结论 / 附录 / 后记
+    #   Chapter X / CHAPTER X
+    #   Kapitel X
+    #   § X / §X
+    # 每个匹配块从当前标题行开始，到下一个标题行（或文末）结束
+    _CN_NUM = r"第[一二三四五六七八九十百千\d]+章"
+    _CN_WORD = r"(?:导[论言]|绪[论言]|引[言论]|前[言]|序[言]?|结束语|结[论语]|附[录记]|后[记]|跋|补[编遗]|凡例)"
+    _CN = rf"(?:{_CN_NUM}|{_CN_WORD})"
+    _EN = r"Chapter\s+\d+"
+    _DE = r"Kapitel\s+\d+"
+    _SECTION = r"§\s*\d+"
 
+    heading = rf"(?:{_CN}|{_EN}|{_DE}|{_SECTION})"
+    pattern = re.compile(rf"^({heading})\b.*$", re.MULTILINE)
+
+    # 找到所有标题行位置
+    matches = list(pattern.finditer(text))
+    if len(matches) < 2:
+        logger.warning(f"未识别到章节结构: {book_id}，按空行段落切分")
+        paragraphs = [p.strip() for p in re.split(r"\n{2,}", text) if p.strip()]
+        if not paragraphs:
+            return [Document(page_content=text, metadata={"book_id": book_id})]
+        return [
+            Document(
+                page_content=p,
+                metadata={"book_id": book_id, "chunk_index": i},
+            )
+            for i, p in enumerate(paragraphs)
+        ]
+
+    # 按标题位置切分
     chapters = []
-    for pattern in chapter_patterns:
-        matches = re.findall(pattern, text, re.MULTILINE)
-        if matches and len(matches) >= 3:  # 至少识别出 3 章
-            for i, chapter_text in enumerate(matches):
-                chapters.append(
-                    Document(
-                        page_content=chapter_text.strip(),
-                        metadata={
-                            "book_id": book_id,
-                            "chapter_index": i,
-                            "chapter_type": pattern[:20],
-                        },
-                    )
-                )
-            break
+    for i, m in enumerate(matches):
+        start = m.start()
+        end = matches[i + 1].start() if i + 1 < len(matches) else len(text)
+        chapter_text = text[start:end].strip()
+        if not chapter_text:
+            continue
+        chapters.append(
+            Document(
+                page_content=chapter_text,
+                metadata={
+                    "book_id": book_id,
+                    "chapter_index": i,
+                    "chapter_title": m.group(1).strip() if m.group(1) else m.group(0).strip(),
+                },
+            )
+        )
 
-    if not chapters:
-        # 没识别到章节，按段落切
-        logger.warning(f"未识别到章节结构: {book_id}，按段落切分")
-        return split_text([Document(page_content=text, metadata={"book_id": book_id})])
-
-    logger.info(f"✓ 识别到 {len(chapters)} 个章节")
+    logger.info(f"✓ 识别到 {len(chapters)} 个章节 (pattern={pattern.pattern[:60]}...)")
     return chapters
 
 

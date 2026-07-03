@@ -11,6 +11,26 @@ from pathlib import Path
 
 from datasets import Dataset
 from loguru import logger
+
+# ragas 0.4.x 仍从 langchain_community.chat_models 引用 vertexai，但
+# langchain-community >=0.4 已移除该模块。我们只用 DeepSeek / Anthropic，
+# 所以在 import ragas 前 monkey-patch 一个空壳，避免依赖 vertexai 失败。
+try:
+    import langchain_community.chat_models as _lcms
+    if not hasattr(_lcms, "vertexai"):
+        import types
+        _stub = types.ModuleType("langchain_community.chat_models.vertexai")
+        class _Stub:
+            pass
+        _stub.ChatVertexAI = _Stub
+        _lcms.vertexai = _stub  # type: ignore[attr-defined]
+        import sys as _sys
+        _sys.modules.setdefault(
+            "langchain_community.chat_models.vertexai", _stub
+        )
+except Exception:  # pragma: no cover
+    pass
+
 from ragas import evaluate
 from ragas.metrics import answer_relevancy, context_precision, context_recall, faithfulness
 

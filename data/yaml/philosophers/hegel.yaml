@@ -1,0 +1,119 @@
+# 哲学家档案：黑格尔
+
+hegel:
+  zh:
+    name: 黑格尔
+    name_en: Georg Wilhelm Friedrich Hegel
+    name_de: Georg Wilhelm Friedrich Hegel
+    era: 1770-1831
+    school: 德国古典哲学 / 绝对唯心主义 / 辩证法
+    language: 德语
+    nationality: 符腾堡（斯图加特）
+    style: |
+      宏大体系哲学。
+      概念自我展开、自我否定、自我综合。
+      文风晦涩，辩证逻辑贯穿始终。
+      历史与逻辑的统一。
+    core_position: |
+      绝对精神（der absolute Geist）是世界的本质，
+      通过辩证法（正-反-合）自我展开、自我认识。
+      一切有限事物都是绝对精神自我实现过程中的环节。
+      哲学史是绝对精神自我认识的展开史。
+      "凡是合乎理性的都是现实的，凡是现实的都是合乎理性的。"
+    key_concepts:
+      - 绝对精神
+      - 辩证法
+      - 主奴意识
+      - 精神现象学
+      - 否定之否定
+      - 逻辑学
+      - 历史哲学
+      - 国家哲学
+    major_works:
+      - 精神现象学 (1807)
+      - 逻辑学 (1812-1816)
+      - 哲学科学全书 (1817)
+      - 法哲学原理 (1821)
+      - 历史哲学讲演录 (1837)
+      - 美学讲演录 (1835)
+    influences:
+      - 康德（批判哲学）
+      - 费希特
+      - 谢林（早期同学，后决裂）
+      - 斯宾诺莎
+      - 柏拉图
+    influenced_by:
+      - 康德
+      - 费希特
+      - 谢林
+      - 斯宾诺莎
+      - 柏拉图
+      - 赫拉克利特
+    influenced:
+      - 马克思
+      - 恩格斯
+      - 存在主义（海德格尔、萨特）
+      - 现象学（部分）
+      - 法兰克福学派
+      - 整个 19-20 世纪欧陆哲学
+    famous_quotes:
+      - "凡是合乎理性的都是现实的，凡是现实的都是合乎理性的。"
+      - "密涅瓦的猫头鹰只在黄昏起飞。"
+      - "哲学史是哲学的展开史。"
+  en:
+    name: Georg Wilhelm Friedrich Hegel
+    name_de: Georg Wilhelm Friedrich Hegel
+    era: 1770-1831
+    school: German Classical philosophy / Absolute Idealism / Dialectics
+    language: German
+    nationality: Württemberg (Stuttgart)
+    style: |
+      Grand systematic philosophy.
+      Concepts self-develop, self-negate, self-sublate.
+      Dense prose, dialectical logic throughout.
+      Unity of history and logic.
+    core_position: |
+      Absolute Spirit (der absolute Geist) is the essence of reality,
+      unfolding and knowing itself through dialectic (thesis-antithesis-synthesis).
+      All finite things are moments in the Absolute's self-realization.
+      The history of philosophy is the unfolding of the Absolute's self-knowledge.
+      "What is rational is actual; what is actual is rational."
+    key_concepts:
+      - Absolute Spirit
+      - Dialectic
+      - Master-slave consciousness
+      - Phenomenology of Spirit
+      - Negation of negation
+      - Science of Logic
+      - Philosophy of History
+      - Philosophy of Right
+    major_works:
+      - Phenomenology of Spirit (1807)
+      - Science of Logic (1812-1816)
+      - Encyclopedia of the Philosophical Sciences (1817)
+      - Elements of the Philosophy of Right (1821)
+      - Lectures on the Philosophy of History (1837)
+      - Lectures on Aesthetics (1835)
+    influences:
+      - Kant (critical philosophy)
+      - Fichte
+      - Schelling (early collaborator, later estranged)
+      - Spinoza
+      - Plato
+    influenced_by:
+      - Kant
+      - Fichte
+      - Schelling
+      - Spinoza
+      - Plato
+      - Heraclitus
+    influenced:
+      - Marx
+      - Engels
+      - Existentialism (Heidegger, Sartre)
+      - Phenomenology (partial)
+      - Frankfurt School
+      - All 19th-20th century continental philosophy
+    famous_quotes:
+      - "What is rational is actual; what is actual is rational."
+      - "The owl of Minerva spreads its wings only with the falling of dusk."
